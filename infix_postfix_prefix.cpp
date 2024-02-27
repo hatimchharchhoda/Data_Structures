@@ -47,7 +47,46 @@ string infixtopostfix(char a[])
     {
         result+=mid[i];
     }
-    cout<<"postfix: "<<result;
+    cout<<endl<<"postfix: "<<result;
+}
+
+string infixtoprefix(char a[])
+{
+    int p=0,d=-1,l=strlen(a);
+    char mid[10],b[l+1],result[l];
+    strcpy(b,a);
+    strrev(b);
+    for(int i=0; i<l; i++)
+    {
+        char w=b[i];
+        if((w>='a' && w<='z') || (w>='A' && w<='Z'))
+        {
+            result[++d]=b[i];
+        }
+        else if(presedence(w)>presedence(mid[p]))
+        {
+            mid[++p]=w;
+        }
+        else if(presedence(w)==presedence(mid[p]))
+        {
+            result[++d]=mid[p];
+            mid[p]=w;
+        }
+        else
+        {
+            for(int j=0; presedence(w)<presedence(mid[p]) || presedence(w)==presedence(mid[p]); j++)
+            {
+                result[++d]=mid[p--];
+            }
+            mid[++p]=w;
+        }
+    }
+    for(int i=p; i>0; i--)
+    {
+        result[++d]=mid[i];
+    }
+    result[++d]='\0';
+    cout<<endl<<"prefix: "<<strrev(result);
 }
 
 int main()
@@ -56,5 +95,6 @@ int main()
     cout<<"enter an infix expression: ";
     cin>>a;
     infixtopostfix(a);
+    infixtoprefix(a);
     return 0;
 }
