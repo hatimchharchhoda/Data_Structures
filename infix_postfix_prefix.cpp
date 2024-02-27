@@ -36,7 +36,7 @@ void infixtopostfix(char a[])
         }
         else
         {
-            for(int j=0; presedence(w)<presedence(mid[p]) || presedence(w)==presedence(mid[p]); j++)
+            for(int j=0; presedence(w)<=presedence(mid[p]); j++)
             {
                 result+=mid[p--];
             }
@@ -74,7 +74,7 @@ void infixtoprefix(char a[])
         }
         else
         {
-            for(int j=0; presedence(w)<presedence(mid[p]) || presedence(w)==presedence(mid[p]); j++)
+            for(int j=0; presedence(w)<=presedence(mid[p]); j++)
             {
                 result[++d]=mid[p--];
             }
