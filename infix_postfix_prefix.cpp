@@ -13,7 +13,7 @@ int presedence(char s)
         return -1;
 }
 
-string infixtopostfix(char a[])
+void infixtopostfix(char a[])
 {
     string result;
     char mid[10];
@@ -50,7 +50,7 @@ string infixtopostfix(char a[])
     cout<<endl<<"postfix: "<<result;
 }
 
-string infixtoprefix(char a[])
+void infixtoprefix(char a[])
 {
     int p=0,d=-1,l=strlen(a);
     char mid[10],b[l+1],result[l];
