@@ -5,8 +5,6 @@ class queue1
 {
 public:
     int a[50],first=-1,last=-1;
-
-
     void isert(int x)
     {
             if(last==49)
