@@ -84,7 +84,6 @@ public:
     }
     void print()
     {
-        int n=6;
         node* ptr=head;
         if(ptr==NULL)
         {
